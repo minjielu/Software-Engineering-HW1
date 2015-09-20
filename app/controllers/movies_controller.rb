@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
   def index
     sort=params[:sort]
-    @movies = Movie.find(:rating.keys).order(sort)
+    @movies = Movie.find(:rating==:rating.keys).order(sort)
     @all_ratings = Movie.all_ratings
   end
 
