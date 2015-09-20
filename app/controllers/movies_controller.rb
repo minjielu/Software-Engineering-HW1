@@ -10,8 +10,9 @@ class MoviesController < ApplicationController
     # will render app/views/movies/show.<extension> by default
   end
 
-  def index(:title, :release_date)
-    @movies = Movie.order(:title, :release_date)
+  def index
+    @movies = Movie.order(:title)
+    @movies = Movie.order(:release_date)
   end
 
   def new
