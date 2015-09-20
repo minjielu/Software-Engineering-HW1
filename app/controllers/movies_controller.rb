@@ -13,7 +13,6 @@ class MoviesController < ApplicationController
   def index
     sort=params[:sort]
     @movies = Movie.order(sort)
-    table#movies th.sort { background-color: yellow; }
   end
 
   def new
