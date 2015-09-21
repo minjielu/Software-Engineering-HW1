@@ -14,8 +14,6 @@ class MoviesController < ApplicationController
     sort=params[:sort]
     if params[:ratings].present?
       @movies= Movie.where(rating: params[:ratings].keys).order(sort)
-    elseif session[:ratings].present?
-      @movies= Movie.where(rating: session[:ratings].keys).order(sort)
     else
       @movies= Movie.order(sort)
     end
