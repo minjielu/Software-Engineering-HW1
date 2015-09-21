@@ -13,6 +13,9 @@ class MoviesController < ApplicationController
   def index
     sort=params[:sort]
     if params[:ratings].present?
+      @movies= Movie.where(rating: params[:ratings].keys).order(sort)
+      session[:ratings]=params[:ratings]
+    else if session[:ratings].present?
       @movies= Movie.where(rating: session[:ratings].keys).order(sort)
     else
       @movies= Movie.order(sort)
